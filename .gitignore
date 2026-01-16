@@ -1,3 +1,7 @@
+build/
+.vscode/
+.vs/
+
 # Prerequisites
 *.d
 
@@ -39,3 +43,8 @@
 
 # debug information files
 *.dwo
+
+.cache
+
+CMakeSettings.json
+CMakeUserPresets.json
