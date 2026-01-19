@@ -13,6 +13,12 @@ target_link_libraries(test_mylib PRIVATE
 
 target_include_directories(test_mylib PRIVATE ${CMAKE_SOURCE_DIR}/test/utils)
 
+add_custom_command(TARGET test_mylib POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<TARGET_FILE:mylib>
+        $<TARGET_FILE_DIR:test_mylib>
+)
+
 get_target_property(GTEST_INCLUDE_DIRS GTest::gtest_main INTERFACE_INCLUDE_DIRECTORIES)
 message(STATUS "GTest include dirs: ${GTEST_INCLUDE_DIRS}")
 
